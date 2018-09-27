@@ -76,13 +76,13 @@ public class HiParserThreadList {
             }
 
             Elements titleES = tbodyE.select("tr th.common a.s");
-            Logger.e("titleES.size:"+titleES.size());
+//            Logger.e("titleES.size:"+titleES.size());
             if (titleES.size() == 0) {
                 continue;
             }
             Element titleLink = titleES.first();
             String title = titleLink.text();
-            Logger.e("title:"+title);
+//            Logger.e("title:"+title);
             thread.setTitle(EmojiParser.parseToUnicode(title));
 
             String linkStyle = titleLink.attr("style");
@@ -143,7 +143,7 @@ public class HiParserThreadList {
             if (nums.size() == 0) {
                 continue;
             }
-            Elements comentsES = nums.first().select("strong");
+            Elements comentsES = nums.first().select("a.xi2");
             if (comentsES.size() == 0) {
                 continue;
             }
@@ -158,7 +158,7 @@ public class HiParserThreadList {
             thread.setCountViews(views);
 
             // lastpost
-            Elements lastpostciteES = tbodyE.select("td.lastpost cite");
+            Elements lastpostciteES = tbodyE.select("td.by cite");
             if (lastpostciteES.size() == 0) {
                 continue;
             }
@@ -166,7 +166,7 @@ public class HiParserThreadList {
             thread.setLastPost(lastpost);
 
             // attachment and picture
-            Elements attachs = tbodyE.select("img.attach");
+            Elements attachs = tbodyE.select("th.new img");
             for (int j = 0; j < attachs.size(); j++) {
                 Element attach = attachs.get(j);
                 String attach_img_url = attach.attr("src");
@@ -194,6 +194,7 @@ public class HiParserThreadList {
             }
             thread.setMaxPage(maxPage);
 
+            Logger.e("add thread:"+thread.getTitle());
             threads.add(thread);
         }
 

@@ -36,7 +36,7 @@ public class HiParserThreadDetail {
 
     public static DetailListBean parse(Context ctx, Document doc, String tid) {
         // get last page
-        Elements pagesES = doc.select("div#wrap div.forumcontrol div.pages");
+        Elements pagesES = doc.select("div.pg");
         // thread have only 1 page don't have "div.pages"
         int last_page = 1;
         int page = 1;
@@ -64,7 +64,7 @@ public class HiParserThreadDetail {
             details.setTid(tid);
 
         //get forum id
-        Elements divNavES = doc.select("div#nav");
+        Elements divNavES = doc.select("div#pt");
         if (divNavES.size() > 0) {
             Elements divNavLinkES = divNavES.first().select("a");
             if (divNavLinkES.size() > 0) {
@@ -79,27 +79,34 @@ public class HiParserThreadDetail {
             }
             //get thread title from nav div
             divNavLinkES.remove();
-            String title = divNavES.text();
-            title = title.replace("»", "").trim();
-            details.setTitle(EmojiParser.parseToUnicode(title));
+            //TODO：不明白这里为何要重新获取title
+//            String title = divNavES.text();
+//            title = title.replace("»", "").trim();
+//            details.setTitle(EmojiParser.parseToUnicode(title));
         }
 
         //Title, only avaliable in first page
         if (TextUtils.isEmpty(details.getTitle())) {
-            Elements threadtitleES = doc.select("div#threadtitle");
+            Elements threadtitleES = doc.select("div#thread_subject");
             if (threadtitleES.size() > 0) {
                 threadtitleES.select("a").remove();
                 details.setTitle(threadtitleES.first().text());
             }
         }
 
-        Elements rootES = doc.select("div#wrap div#postlist");
+        Elements rootES = doc.select("div#ct div#postlist");
         if (rootES.size() != 1) {
             return null;
         }
         Element postsEL = rootES.first();
         for (int i = 0; i < postsEL.childNodeSize(); i++) {
-            Element postE = postsEL.child(i);
+            Element postE;
+            try{
+                postE = postsEL.child(i);
+            }catch (Exception e){
+                break;
+            }
+
 
             DetailBean detail = new DetailBean();
             detail.setPage(page);
@@ -113,7 +120,7 @@ public class HiParserThreadDetail {
             detail.setPostId(id);
 
             //time
-            Elements timeEMES = postE.select("table tbody tr td.postcontent div.postinfo div.posterinfo div.authorinfo em");
+            Elements timeEMES = postE.select("table tbody tr td.plc div.pti div.authi em");
             if (timeEMES.size() == 0) {
                 continue;
             }
@@ -121,15 +128,15 @@ public class HiParserThreadDetail {
             detail.setTimePost(time);
 
             //floor
-            Elements postinfoAES = postE.select("table tbody tr td.postcontent div.postinfo strong a em");
+            Elements postinfoAES = postE.select("table tbody tr td.plc div.pi strong a em");
             if (postinfoAES.size() == 0) {
                 continue;
             }
             String floor = postinfoAES.first().text();
             detail.setFloor(Utils.parseInt(floor));
 
-            //warning
-            Elements warningES = postE.select("table tbody tr td.postcontent span.postratings a");
+            //warning TODO:这个还不知道是干啥的
+            Elements warningES = postE.select("table tbody tr td.plc span.postratings a");
             if (warningES.size() > 0 && warningES.first().attr("href").contains("viewwarning")) {
                 detail.setWarned(true);
             }
@@ -145,7 +152,7 @@ public class HiParserThreadDetail {
             }
 
             //author
-            Elements postauthorAES = postE.select("table tbody tr td.postauthor div.postinfo a");
+            Elements postauthorAES = postE.select("table tbody tr td.pls div.pi div.authi a");
             if (postauthorAES.size() == 0) {
                 continue;
             }
@@ -176,7 +183,7 @@ public class HiParserThreadDetail {
 
             //content
             Contents content = detail.getContents();
-            Elements postmessageES = postE.select("table tbody tr td.postcontent div.defaultpost div.postmessage div.t_msgfontfix table tbody tr td.t_msgfont");
+            Elements postmessageES = postE.select("table tbody tr td.t_f");
 
             //locked user content
             if (postmessageES.size() == 0) {
@@ -262,7 +269,7 @@ public class HiParserThreadDetail {
             }
 
             // IMG attachments
-            Elements dlES = postE.select("table tbody tr td.postcontent div.defaultpost div.postmessage div.t_msgfontfix div.postattachlist dl.attachimg");
+            Elements dlES = postE.select("ignore_js_op");
             for (int j = 0; j < dlES.size(); j++) {
                 Element dlEl = dlES.get(j);
                 Elements sizeES = dlEl.select("em");

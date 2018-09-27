@@ -636,8 +636,9 @@ public class ThreadListFragment extends BaseFragment
             showNotification();
 
             if (mPage <= 5 && mThreadBeans.size() < MIN_TREADS_IN_PAGE) {
-                if (mPage == 1 && mThreadBeans.size() == 0)
-                    UIUtils.toast("置顶贴较多，请在网页版论坛 个人中心 \n将 论坛个性化设定 - 每页主题 设为 默认");
+                //TODO:还没搞清楚怎么判断的，先屏蔽再说
+//                if (mPage == 1 && mThreadBeans.size() == 0)
+//                    UIUtils.toast("置顶贴较多，请在网页版论坛 个人中心 \n将 论坛个性化设定 - 每页主题 设为 默认");
                 mPage++;
                 mInloading = true;
                 ThreadListJob job = new ThreadListJob(getActivity(), mSessionId, mForumId, mPage);

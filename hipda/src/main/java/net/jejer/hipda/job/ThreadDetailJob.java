@@ -66,7 +66,7 @@ public class ThreadDetailJob extends BaseJob {
         String eventDetail = "";
 
         for (int i = 0; i < OkHttpHelper.MAX_RETRY_TIMES; i++) {
-            try {
+//            try {
                 String resp = fetchDetail();
                 if (resp != null) {
                     if (!LoginHelper.checkLoggedin(mCtx, resp)) {
@@ -87,14 +87,14 @@ public class ThreadDetailJob extends BaseJob {
                         break;
                     }
                 }
-            } catch (Exception e) {
-                NetworkError networkError = OkHttpHelper.getErrorMessage(e);
-                eventStatus = Constants.STATUS_FAIL;
-                eventMessage = networkError.getMessage();
-                eventDetail = networkError.getDetail();
-                if (isCancelled())
-                    break;
-            }
+//            } catch (Exception e) {
+//                NetworkError networkError = OkHttpHelper.getErrorMessage(e);
+//                eventStatus = Constants.STATUS_FAIL;
+//                eventMessage = networkError.getMessage();
+//                eventDetail = networkError.getDetail();
+//                if (isCancelled())
+//                    break;
+//            }
         }
 
         long delta = System.currentTimeMillis() - start;

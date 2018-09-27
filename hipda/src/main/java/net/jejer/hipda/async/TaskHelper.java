@@ -55,7 +55,8 @@ public class TaskHelper {
         if (OkHttpHelper.getInstance().isLoggedIn()
                 && (force || bSyncDate == null
                 || System.currentTimeMillis() > bSyncDate.getTime() + 24 * 60 * 60 * 1000)) {
-            BlacklistHelper.syncBlacklists();
+            //TODO:黑名单功能暂时屏蔽
+//            BlacklistHelper.syncBlacklists();
         }
     }
 
