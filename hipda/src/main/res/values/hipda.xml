@@ -4,6 +4,7 @@
     <string name="login_success">"欢迎您回来"</string>
     <string name="login_fail">"登录失败"</string>
     <string name="not_login">"您还未登录"</string>
+    <string name="no_permission">"无法进行此操作"</string>
     <string name="default_tail_text">"EMSKY·NG"</string>
     <string name="default_tail_url">"http://www.emsky.net/bbs/viewthread.php?tid=1579403"</string>
 

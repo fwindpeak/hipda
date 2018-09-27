@@ -73,13 +73,16 @@ public class HiParserThreadDetail {
                     String forumUrl = Utils.nullToText(forumLink.attr("href"));
                     if (forumUrl.indexOf("fid=") > 0) {
                         details.setFid(Utils.parseInt(Utils.getMiddleString(forumUrl, "fid=", "&")));
-                        break;
+//                        break;
+                    }else if(forumUrl.indexOf("tid=")>0){
+                        String title = forumLink.text();
+                        title = title.replace("»", "").trim();
+                        details.setTitle(EmojiParser.parseToUnicode(title));
                     }
                 }
             }
             //get thread title from nav div
-            divNavLinkES.remove();
-            //TODO：不明白这里为何要重新获取title
+//            divNavLinkES.remove();
 //            String title = divNavES.text();
 //            title = title.replace("»", "").trim();
 //            details.setTitle(EmojiParser.parseToUnicode(title));

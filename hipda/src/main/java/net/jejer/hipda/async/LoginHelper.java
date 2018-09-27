@@ -123,7 +123,8 @@ public class LoginHelper {
     }
 
     public static boolean checkLoggedin(Context context, String mRsp) {
-        boolean loggedIn = !mRsp.contains(context.getString(R.string.not_login));
+        boolean loggedIn = !mRsp.contains(context.getString(R.string.no_permission)) &&
+                !mRsp.contains(context.getString(R.string.not_login));
         if (!loggedIn)
             logout();
         return loggedIn;
