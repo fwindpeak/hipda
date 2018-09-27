@@ -6,7 +6,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 /**
  * Created by GreenSkinMonster on 2017-06-15.

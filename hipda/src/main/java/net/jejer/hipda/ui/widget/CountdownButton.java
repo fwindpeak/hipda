@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 /**
  * Created by GreenSkinMonster on 2017-06-28.

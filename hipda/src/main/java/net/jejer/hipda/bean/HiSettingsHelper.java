@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.service.NotiHelper;
 import net.jejer.hipda.ui.HiApplication;
 import net.jejer.hipda.utils.Connectivity;

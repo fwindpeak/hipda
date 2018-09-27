@@ -12,7 +12,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.PostHelper;
 import net.jejer.hipda.job.SimpleListJob;
 import net.jejer.hipda.utils.Constants;

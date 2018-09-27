@@ -15,7 +15,7 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.file.FileToStreamDecoder;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.bean.ContentImg;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.cache.ImageContainer;

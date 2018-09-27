@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.LoginHelper;
 import net.jejer.hipda.async.TaskHelper;
 import net.jejer.hipda.bean.HiSettingsHelper;

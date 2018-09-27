@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 /**
  * @author Yrom

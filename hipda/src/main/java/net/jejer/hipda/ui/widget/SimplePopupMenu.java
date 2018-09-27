@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

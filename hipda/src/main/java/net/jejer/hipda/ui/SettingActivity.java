@@ -5,7 +5,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.ui.setting.AboutFragment;
 import net.jejer.hipda.ui.setting.BlacklistFragment;
 import net.jejer.hipda.ui.setting.SettingMainFragment;

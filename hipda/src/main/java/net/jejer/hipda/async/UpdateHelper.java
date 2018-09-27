@@ -51,16 +51,17 @@ public class UpdateHelper {
         HiSettingsHelper.getInstance().setAutoUpdateCheck(true);
         HiSettingsHelper.getInstance().setLastUpdateCheckTime(new Date());
 
-        if (mSilent) {
-            doCheck();
-        } else {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    doCheck();
-                }
-            }).start();
-        }
+//        if (mSilent) {
+//            doCheck();
+//        } else {
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//                    doCheck();
+//                }
+//            }).start();
+//        }
+
     }
 
     private void doCheck() {

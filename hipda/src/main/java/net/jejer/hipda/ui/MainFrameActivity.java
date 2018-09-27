@@ -55,7 +55,7 @@ import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.vanniktech.emoji.EmojiHandler;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.LoginEvent;
 import net.jejer.hipda.async.LoginHelper;
 import net.jejer.hipda.async.NetworkReadyEvent;
@@ -138,7 +138,7 @@ public class MainFrameActivity extends BaseActivity {
                 new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
 
         if (savedInstanceState == null) {
-            TaskHelper.updateImageHost();
+//            TaskHelper.updateImageHost();
 
             int fid = HiSettingsHelper.getInstance().getLastForumId();
             FragmentArgs args = FragmentUtils.parse(getIntent());

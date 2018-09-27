@@ -7,7 +7,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.preference.Preference;
 import android.text.TextUtils;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.UpdateHelper;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.glide.GlideHelper;

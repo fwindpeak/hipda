@@ -2,7 +2,7 @@ package net.jejer.hipda.utils;
 
 import android.util.Log;
 
-import net.jejer.hipda.BuildConfig;
+import net.jejer.emsky.BuildConfig;
 
 /**
  * https://github.com/qii/weiciyuan/blob/0.50/src/org/qii/weiciyuan/support/debug/AppLogger.java

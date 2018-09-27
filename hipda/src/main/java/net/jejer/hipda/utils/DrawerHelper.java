@@ -9,7 +9,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 /**
  * Created by GreenSkinMonster on 2016-07-27.

@@ -5,7 +5,7 @@ import android.graphics.Color;
 import android.support.v4.graphics.ColorUtils;
 import android.util.TypedValue;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.bean.HiSettingsHelper;
 
 import java.util.HashMap;

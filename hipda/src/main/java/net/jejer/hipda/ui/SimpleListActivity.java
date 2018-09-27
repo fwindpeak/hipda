@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.job.SimpleListJob;
 import net.jejer.hipda.ui.widget.OnSingleClickListener;
 

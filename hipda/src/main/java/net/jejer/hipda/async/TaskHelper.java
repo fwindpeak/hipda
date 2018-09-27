@@ -127,13 +127,15 @@ public class TaskHelper {
     }
 
     private static void updateCustSetting() throws Exception {
-        String response = OkHttpHelper.getInstance().get(SETTING_URL);
-        Gson gson = new Gson();
-        Type stringStringMap = new TypeToken<Map<String, String>>() {
-        }.getType();
-        Map<String, String> map = gson.fromJson(response, stringStringMap);
-        String protocol = map.get("protocol");
-        String imageHost = map.get("image_host");
+//        String response = OkHttpHelper.getInstance().get(SETTING_URL);
+//        Gson gson = new Gson();
+//        Type stringStringMap = new TypeToken<Map<String, String>>() {
+//        }.getType();
+//        Map<String, String> map = gson.fromJson(response, stringStringMap);
+//        String protocol = map.get("protocol");
+//        String imageHost = map.get("image_host");
+        String protocol = "http";
+        String imageHost = "http://www.emsky.net";
 
         if (!TextUtils.isEmpty(protocol) && !TextUtils.isEmpty(imageHost)) {
             if ("https".equals(protocol)) {

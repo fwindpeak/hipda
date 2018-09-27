@@ -33,7 +33,7 @@ import com.bumptech.glide.Glide;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.iconics.view.IconicsImageView;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.LoginHelper;
 import net.jejer.hipda.async.NetworkReadyEvent;
 import net.jejer.hipda.bean.HiSettingsHelper;

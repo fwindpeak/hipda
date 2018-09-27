@@ -30,8 +30,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.jejer.hipda.BuildConfig;
-import net.jejer.hipda.R;
+import net.jejer.emsky.BuildConfig;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.FileDownTask;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.cache.ImageContainer;

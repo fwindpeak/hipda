@@ -10,7 +10,7 @@ import android.view.WindowManager;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 /**
  * a simple progress dialog

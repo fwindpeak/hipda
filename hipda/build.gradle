@@ -41,6 +41,10 @@ android {
         debug {
             ext.enableCrashlytics = false
         }
+
+        release {
+            ext.enableCrashlytics = false
+        }
     }
 }
 

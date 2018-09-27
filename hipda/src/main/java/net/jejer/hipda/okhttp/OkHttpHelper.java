@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.bumptech.glide.Glide;
 import com.crashlytics.android.Crashlytics;
 
-import net.jejer.hipda.BuildConfig;
+import net.jejer.emsky.BuildConfig;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.ui.HiApplication;
 import net.jejer.hipda.utils.Connectivity;
@@ -362,7 +362,7 @@ public class OkHttpHelper {
     public boolean isLoggedIn() {
         List<Cookie> cookies = mCookiestore.getCookies();
         for (Cookie cookie : cookies) {
-            if ("cdb_auth".equals(cookie.name())) {
+            if (cookie.name().endsWith("_auth")) {
                 return true;
             }
         }
@@ -372,7 +372,7 @@ public class OkHttpHelper {
     public String getAuthCookie() {
         List<Cookie> cookies = mCookiestore.getCookies();
         for (Cookie cookie : cookies) {
-            if ("cdb_auth".equals(cookie.name())) {
+            if (cookie.name().endsWith("_auth")) {
                 return cookie.value();
             }
         }

@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 import java.util.ArrayList;
 import java.util.List;

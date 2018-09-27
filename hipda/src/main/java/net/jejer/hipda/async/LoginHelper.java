@@ -3,7 +3,7 @@ package net.jejer.hipda.async;
 import android.content.Context;
 import android.text.TextUtils;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.okhttp.OkHttpHelper;
 import net.jejer.hipda.okhttp.ParamsMap;

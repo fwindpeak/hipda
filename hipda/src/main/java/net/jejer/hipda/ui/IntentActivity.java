@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
-import net.jejer.hipda.BuildConfig;
+import net.jejer.emsky.BuildConfig;
 import net.jejer.hipda.service.NotiHelper;
 
 /**

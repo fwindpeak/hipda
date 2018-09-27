@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.RequestManager;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.bean.ThreadBean;
 import net.jejer.hipda.glide.GlideHelper;

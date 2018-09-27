@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 import java.util.Map;
 

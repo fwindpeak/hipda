@@ -44,8 +44,8 @@ import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
 
-import net.jejer.hipda.BuildConfig;
-import net.jejer.hipda.R;
+import net.jejer.emsky.BuildConfig;
+import net.jejer.emsky.R;
 import net.jejer.hipda.async.PostHelper;
 import net.jejer.hipda.async.PrePostAsyncTask;
 import net.jejer.hipda.bean.Forum;

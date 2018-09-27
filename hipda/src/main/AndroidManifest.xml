@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="net.jejer.hipda"
+<manifest package="net.jejer.emsky"
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionCode="4306"
           android:versionName="4.3.06">
@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
-        android:name=".ui.HiApplication"
+        android:name="net.jejer.hipda.ui.HiApplication"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_config"
         android:hardwareAccelerated="true"
@@ -26,7 +26,7 @@
         android:theme="@style/ThemeLight">
 
         <activity
-            android:name=".ui.MainFrameActivity"
+            android:name="net.jejer.hipda.ui.MainFrameActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
@@ -35,7 +35,7 @@
         </activity>
 
         <activity
-            android:name=".ui.IntentActivity"
+            android:name="net.jejer.hipda.ui.IntentActivity"
             android:noHistory="true"/>
 
         <activity-alias
@@ -43,7 +43,7 @@
             android:enabled="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:targetActivity=".ui.MainFrameActivity">
+            android:targetActivity="net.jejer.hipda.ui.MainFrameActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -58,7 +58,7 @@
             android:enabled="false"
             android:icon="@mipmap/ic_launcher_circle"
             android:label="@string/app_name"
-            android:targetActivity=".ui.MainFrameActivity">
+            android:targetActivity="net.jejer.hipda.ui.MainFrameActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -71,7 +71,7 @@
         <activity-alias
             android:name=".ng.IntentActivity"
             android:label="@string/app_name"
-            android:targetActivity=".ui.IntentActivity">
+            android:targetActivity="net.jejer.hipda.ui.IntentActivity">
             <intent-filter android:label="@string/app_name">
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -79,7 +79,7 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
 
                 <data android:scheme="http"/>
-                <data android:host="www.hi-pda.com"/>
+                <data android:host="www.emsky.net"/>
                 <data android:pathPrefix="/forum/forumdisplay.php"/>
                 <data android:pathPrefix="/forum/viewthread.php"/>
                 <data android:pathPrefix="/forum/gotopost.php"/>
@@ -92,13 +92,14 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="https"/>
-                <data android:host="www.hi-pda.com"/>
-                <data android:pathPrefix="/forum/forumdisplay.php"/>
-                <data android:pathPrefix="/forum/viewthread.php"/>
-                <data android:pathPrefix="/forum/gotopost.php"/>
-                <data android:pathPrefix="/forum/redirect.php"/>
-                <data android:pathPrefix="/forum/space.php"/>
+                <data android:scheme="http"/>
+                <data android:host="www.emsky.net"/>
+                <data android:pathPrefix="/bbs/forumdisplay.php"/>
+                <data android:pathPrefix="/bbs/viewthread.php"/>
+                <data android:pathPrefix="/bbs/gotopost.php"/>
+                <data android:pathPrefix="/bbs/redirect.php"/>
+                <data android:pathPrefix="/bbs/space.php"/>
+                <data android:pathPrefix="/bbs/home.php"/>
             </intent-filter>
         </activity-alias>
 
@@ -120,17 +121,17 @@
         </provider>
 
         <activity
-            android:name=".ui.ImageViewerActivity"
+            android:name="net.jejer.hipda.ui.ImageViewerActivity"
             android:theme="@style/ThemeBlack"/>
-        <activity android:name=".ui.PostActivity"/>
-        <activity android:name=".ui.ThreadDetailActivity"/>
-        <activity android:name=".ui.UserInfoActivity"/>
-        <activity android:name=".ui.SettingActivity"/>
+        <activity android:name="net.jejer.hipda.ui.PostActivity"/>
+        <activity android:name="net.jejer.hipda.ui.ThreadDetailActivity"/>
+        <activity android:name="net.jejer.hipda.ui.UserInfoActivity"/>
+        <activity android:name="net.jejer.hipda.ui.SettingActivity"/>
         <activity
-            android:name=".ui.SmsActivity"
+            android:name="net.jejer.hipda.ui.SmsActivity"
             android:launchMode="singleTask"/>
         <activity
-            android:name=".ui.SimpleListActivity"
+            android:name="net.jejer.hipda.ui.SimpleListActivity"
             android:launchMode="singleTask"/>
     </application>
 

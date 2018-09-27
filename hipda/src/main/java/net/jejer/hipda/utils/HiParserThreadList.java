@@ -27,11 +27,11 @@ public class HiParserThreadList {
 
         //parse uid and re-set username if necessary
         if (TextUtils.isEmpty(HiSettingsHelper.getInstance().getUid())) {
-            Elements spaceES = doc.select("#umenu cite a");
+            Elements spaceES = doc.select("#um avt a");
             if (spaceES.size() == 1) {
                 String spaceUrl = spaceES.first().attr("href");
                 if (!TextUtils.isEmpty(spaceUrl)) {
-                    String uid = Utils.getMiddleString(spaceUrl, "space.php?uid=", "&");
+                    String uid = Utils.getMiddleString(spaceUrl, "home.php?mode=space&uid=", "&");
                     String username = Utils.nullToText(spaceES.first().text()).trim();
                     if (!TextUtils.isEmpty(uid)
                             && TextUtils.isDigitsOnly(uid)
@@ -48,6 +48,7 @@ public class HiParserThreadList {
         }
 
         Elements tbodyES = doc.select("tbody[id]");
+//        Logger.e("tbodyES.size:"+tbodyES.size());
         for (int i = 0; i < tbodyES.size(); ++i) {
 
             threads.setParsed(true);
@@ -63,6 +64,8 @@ public class HiParserThreadList {
             String idType = idSpil[0];
             String idNum = idSpil[1];
 
+//            Logger.e("idType:"+idType);
+
             thread.setTid(idNum);
             // is stick thread or normal thread
             Boolean isStick = idType.startsWith("stickthread");
@@ -72,12 +75,14 @@ public class HiParserThreadList {
                 continue;
             }
 
-            Elements titleES = tbodyE.select("span#thread_" + idNum + " a");
+            Elements titleES = tbodyE.select("tr th.common a.s");
+            Logger.e("titleES.size:"+titleES.size());
             if (titleES.size() == 0) {
                 continue;
             }
             Element titleLink = titleES.first();
             String title = titleLink.text();
+            Logger.e("title:"+title);
             thread.setTitle(EmojiParser.parseToUnicode(title));
 
             String linkStyle = titleLink.attr("style");
@@ -90,14 +95,14 @@ public class HiParserThreadList {
                 thread.setType(typeES.text());
             }
 
-            Elements threadIsNewES = tbodyE.select("td.folder img");
+            Elements threadIsNewES = tbodyE.select("td.icn a img");
             if (threadIsNewES.size() > 0) {
                 String imgSrc = Utils.nullToText(threadIsNewES.first().attr("src"));
                 thread.setNew(imgSrc.contains("new"));
             }
 
 			/*  author, authorId and create_time  */
-            Elements authorES = tbodyE.select("td.author");
+            Elements authorES = tbodyE.select("td.by");
             if (authorES.size() == 0) {
                 continue;
             }
@@ -112,7 +117,7 @@ public class HiParserThreadList {
             }
 
             String userLink = authorciteAES.first().attr("href");
-            if (userLink.length() < "space.php?uid=".length()) {
+            if (userLink.length() < "home.php?mod=space&uid=".length()) {
                 continue;
             }
             String authorId = Utils.getMiddleString(userLink, "uid=", "&");
@@ -127,14 +132,14 @@ public class HiParserThreadList {
             String threadCreateTime = threadCreateTimeES.first().text();
             thread.setTimeCreate(threadCreateTime);
 
-            Elements threadUpdateTimeES = tbodyE.select("td.lastpost em a");
+            Elements threadUpdateTimeES = tbodyE.select("td.by em span");
             if (threadUpdateTimeES.size() > 0) {
                 String threadUpdateTime = threadUpdateTimeES.first().text();
                 thread.setTimeUpdate(threadUpdateTime);
             }
 
 			/*  comments and views  */
-            Elements nums = tbodyE.select("td.nums");
+            Elements nums = tbodyE.select("td.num");
             if (nums.size() == 0) {
                 continue;
             }
@@ -177,7 +182,7 @@ public class HiParserThreadList {
             }
 
             //get max page number
-            Elements pages = tbodyE.select("span.threadpages a");
+            Elements pages = tbodyE.select("tr th.common a.s");
             int maxPage = 1;
             if (pages.size() > 0) {
                 Element pageLink = pages.get(pages.size() - 1);

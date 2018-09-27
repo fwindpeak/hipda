@@ -1,6 +1,6 @@
 package net.jejer.hipda.cache;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.utils.HiUtils;
 
 import java.util.HashMap;

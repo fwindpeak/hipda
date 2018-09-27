@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.bumptech.glide.Glide;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.glide.GlideImageView;
 
 /**

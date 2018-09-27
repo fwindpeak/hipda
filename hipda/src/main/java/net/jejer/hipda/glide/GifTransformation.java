@@ -9,7 +9,7 @@ import android.graphics.Matrix;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 
 /**
  * draw a mark on gif

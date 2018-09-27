@@ -17,7 +17,7 @@ import android.text.TextUtils;
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.bean.NotificationBean;
 import net.jejer.hipda.bean.SimpleListBean;

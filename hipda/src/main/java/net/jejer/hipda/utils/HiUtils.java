@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.typeface.IIcon;
 
-import net.jejer.hipda.R;
+import net.jejer.emsky.R;
 import net.jejer.hipda.bean.Forum;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.cache.SmallImages;
@@ -20,16 +20,16 @@ import java.util.Map;
 public class HiUtils {
     public static final String UserAgentPrefix = "net.jejer.hipda ";
 
-    public static final String ForumServer = "http://www.hi-pda.com";
-    public static final String ForumServerSsl = "https://www.hi-pda.com";
-    public static final String ImageHost = "http://img.hi-pda.com";
+    public static final String ForumServer = "http://www.emsky.net";
+    public static final String ForumServerSsl = "http://www.emsky.net";
+    public static final String ImageHost = "http://www.emsky.net";
     public static final String AvatarPath = "uc_server/data/avatar/";
-    public static final String CookieDomain = "hi-pda.com";
+    public static final String CookieDomain = "emsky.com";
     public static final String AvatarSuffix = "_avatar_middle.jpg";
     public static final String NewPMImage = "images/default/notice_newpm.gif";
-    public static final String SmiliesPattern = CookieDomain + "/forum/images/smilies/";
-    public static final String ForumImagePattern = CookieDomain + "/forum/images/";
-    public static final String ForumUrlPattern = "." + CookieDomain + "/forum/";
+    public static final String SmiliesPattern = CookieDomain + "/bbs/images/smilies/";
+    public static final String ForumImagePattern = CookieDomain + "/bbs/images/";
+    public static final String ForumUrlPattern = "." + CookieDomain + "/bbs/";
 
     public static final int CLIENT_TID = 1579403;
 
@@ -81,36 +81,36 @@ public class HiUtils {
     // max upload file size : 8M
     public final static int DEFAULT_MAX_UPLOAD_FILE_SIZE = 8 * 1024 * 1024;
 
-    public final static int FID_BS = 6;
-    public final static int FID_DISCOVERY = 2;
+    public final static int FID_BS = 20;
+    public final static int FID_DISCOVERY = 24;
 
     public final static Forum[] FORUMS = {
-            new Forum(FID_DISCOVERY, "Discovery", FontAwesome.Icon.faw_cc_discover),
-            new Forum(FID_BS, "Buy & Sell", FontAwesome.Icon.faw_shopping_cart),
-            new Forum(7, "Geek Talks", FontAwesome.Icon.faw_forumbee),
-            new Forum(59, "E-INK", FontAwesome.Icon.faw_book),
-            new Forum(12, "PalmOS", FontAwesome.Icon.faw_mobile),
-            new Forum(57, "疑似机器人", FontAwesome.Icon.faw_reddit),
-            new Forum(63, "已完成交易", FontAwesome.Icon.faw_check_square),
-            new Forum(62, "Joggler", FontAwesome.Icon.faw_cogs),
-            new Forum(5, "站务与公告", FontAwesome.Icon.faw_bullhorn),
-            new Forum(9, "Smartphone", FontAwesome.Icon.faw_phone_square),
-            new Forum(56, "iPhone, iPod Touch，iPad", FontAwesome.Icon.faw_apple),
-            new Forum(60, "Android, Chrome, & Google", FontAwesome.Icon.faw_android),
-            new Forum(14, "Windows Mobile，PocketPC，HPC", FontAwesome.Icon.faw_windows),
-            new Forum(22, "麦客爱苹果", FontAwesome.Icon.faw_desktop),
-            new Forum(50, "DC,NB,MP3,Gadgets", FontAwesome.Icon.faw_camera_retro),
-            new Forum(24, "意欲蔓延", FontAwesome.Icon.faw_coffee),
-            new Forum(23, "随笔与个人文集", FontAwesome.Icon.faw_pencil_square),
-            new Forum(25, "吃喝玩乐", FontAwesome.Icon.faw_cutlery),
-            new Forum(51, "La Femme", FontAwesome.Icon.faw_female),
-            new Forum(65, "改版建议", FontAwesome.Icon.faw_commenting),
-            new Forum(64, "只讨论2.0", FontAwesome.Icon.faw_child)
+            new Forum(FID_DISCOVERY, "易码水库", FontAwesome.Icon.faw_cc_discover),
+            new Forum(FID_BS, "星软上传", FontAwesome.Icon.faw_shopping_cart),
+            new Forum(18, "星迷天地", FontAwesome.Icon.faw_forumbee),
+//            new Forum(59, "E-INK", FontAwesome.Icon.faw_book),
+//            new Forum(12, "PalmOS", FontAwesome.Icon.faw_mobile),
+//            new Forum(57, "疑似机器人", FontAwesome.Icon.faw_reddit),
+//            new Forum(63, "已完成交易", FontAwesome.Icon.faw_check_square),
+//            new Forum(62, "Joggler", FontAwesome.Icon.faw_cogs),
+//            new Forum(5, "站务与公告", FontAwesome.Icon.faw_bullhorn),
+//            new Forum(9, "Smartphone", FontAwesome.Icon.faw_phone_square),
+//            new Forum(56, "iPhone, iPod Touch，iPad", FontAwesome.Icon.faw_apple),
+//            new Forum(60, "Android, Chrome, & Google", FontAwesome.Icon.faw_android),
+//            new Forum(14, "Windows Mobile，PocketPC，HPC", FontAwesome.Icon.faw_windows),
+//            new Forum(22, "麦客爱苹果", FontAwesome.Icon.faw_desktop),
+//            new Forum(50, "DC,NB,MP3,Gadgets", FontAwesome.Icon.faw_camera_retro),
+//            new Forum(24, "意欲蔓延", FontAwesome.Icon.faw_coffee),
+//            new Forum(23, "随笔与个人文集", FontAwesome.Icon.faw_pencil_square),
+//            new Forum(25, "吃喝玩乐", FontAwesome.Icon.faw_cutlery),
+//            new Forum(51, "La Femme", FontAwesome.Icon.faw_female),
+//            new Forum(65, "改版建议", FontAwesome.Icon.faw_commenting),
+//            new Forum(64, "只讨论2.0", FontAwesome.Icon.faw_child)
     };
 
     private final static Map<Integer, Forum> FORUMS_MAP;
 
-    public final static int[] DEFAULT_FORUMS = {FID_DISCOVERY, FID_BS, 7, 59};
+    public final static int[] DEFAULT_FORUMS = {FID_DISCOVERY, FID_BS, 18};
 
     static {
         FORUMS_MAP = new LinkedHashMap<>(FORUMS.length);
@@ -123,30 +123,29 @@ public class HiUtils {
         String imageHost = HiSettingsHelper.getInstance().getImageHost();
         String forumServer = HiSettingsHelper.getInstance().getForumServer();
 
-        BaseUrl = forumServer + "/forum/";
+        BaseUrl = forumServer + "/bbs/";
 
-        ImageBaseUrl = imageHost + "/forum/";
+        ImageBaseUrl = imageHost + "/bbs/";
         AvatarBaseUrl = BaseUrl + AvatarPath;
-
-        ThreadListUrl = BaseUrl + "forumdisplay.php?fid=";
-        DetailListUrl = BaseUrl + "viewthread.php?tid=";
-        ReplyUrl = BaseUrl + "post.php?action=reply&tid=";
-        EditUrl = BaseUrl + "post.php?action=edit";
-        NewThreadUrl = BaseUrl + "post.php?action=newthread&fid=";
+        ThreadListUrl = BaseUrl + "forum.php?mod=forumdisplay&fid=";
+        DetailListUrl = BaseUrl + "forum.php?mod=viewthread&tid=";
+        ReplyUrl = BaseUrl + "forum.php?mod=post&action=reply&tid=";
+        EditUrl = BaseUrl + "forum.php?mod=post&action=edit";
+        NewThreadUrl = BaseUrl + "forum.php?mod=post&action=newthread&fid=";
         MyReplyUrl = BaseUrl + "my.php?item=posts";
         MyPostUrl = BaseUrl + "my.php?item=threads";
         LastPageUrl = BaseUrl + "redirect.php?goto=lastpost&from=fastpost&tid=";
         RedirectToPostUrl = BaseUrl + "redirect.php?goto=findpost&pid={pid}&ptid={tid}";
         GotoPostUrl = BaseUrl + "gotopost.php?pid={pid}";
-        SMSUrl = BaseUrl + "pm.php?filter=privatepm";
-        SMSDetailUrl = BaseUrl + "pm.php?daterange=5&uid=";
-        SMSPreparePostUrl = BaseUrl + "pm.php?daterange=1&uid=";
-        SMSPostByUid = BaseUrl + "pm.php?action=send&pmsubmit=yes&infloat=yes&inajax=1&uid={uid}";
-        SMSPostByUsername = BaseUrl + "pm.php?action=send&pmsubmit=yes&infloat=yes&inajax=1";
+        SMSUrl = BaseUrl + "home.php?mod=space&do=pm&filter=privatepm";
+        SMSDetailUrl = BaseUrl + "home.php?mod=space&do=pm&/daterange=5&uid=";
+        SMSPreparePostUrl = BaseUrl + "home.php?mod=space&do=pm&/daterange=1&uid=";
+        SMSPostByUid = BaseUrl + "home.php?mod=space&do=pm&/action=send&pmsubmit=yes&infloat=yes&inajax=1&uid={uid}";
+        SMSPostByUsername = BaseUrl + "home.php?mod=space&do=pm&/action=send&pmsubmit=yes&infloat=yes&inajax=1";
         ThreadNotifyUrl = BaseUrl + "notice.php";
-        CheckSMS = BaseUrl + "pm.php?checknewpm";
-        NewSMS = BaseUrl + "pm.php?filter=newpm";
-        ClearSMS = BaseUrl + "pm.php?action=del&uid={uid}&filter=privatepm";
+        CheckSMS = BaseUrl + "home.php?mod=space&do=pm&/checknewpm";
+        NewSMS = BaseUrl + "home.php?mod=space&do=pm&/filter=newpm";
+        ClearSMS = BaseUrl + "home.php?mod=space&do=pm&/action=del&uid={uid}&filter=privatepm";
         UploadImgUrl = BaseUrl + "misc.php?action=swfupload&operation=upload&simple=1&type=image";
         SearchUrl = BaseUrl + "search.php?srchtype={srchtype}&srchtxt={srchtxt}&searchsubmit=true&st=on&srchuname={srchuname}&srchfilter=all&srchfrom=0&before=&orderby=lastpost&ascdesc=desc&srchfid%5B0%5D={fid}";
         SearchUserThreads = BaseUrl + "search.php?srchfid=all&srchfrom=0&searchsubmit=yes&srchuid={srchuid}";
@@ -156,14 +155,14 @@ public class HiUtils {
         FavoriteDeleteUrl = BaseUrl + "my.php?item={item}&type=thread";
         UserInfoUrl = BaseUrl + "space.php?uid=";
         UserWarningUrl = BaseUrl + "misc.php?action=viewwarning&tid={tid}&uid={uid}";
-        AddBlackUrl = BaseUrl + "pm.php?action=addblack";
-        DelBlackUrl = BaseUrl + "pm.php?action=delblack";
-        ViewBlackUrl = BaseUrl + "pm.php?action=viewblack";
+        AddBlackUrl = BaseUrl + "home.php?mod=space&do=pm&/action=addblack";
+        DelBlackUrl = BaseUrl + "home.php?mod=space&do=pm&/action=delblack";
+        ViewBlackUrl = BaseUrl + "home.php?mod=space&do=pm&/action=viewblack";
         NewPostsUrl = BaseUrl + "search.php?srchfrom=86400&searchsubmit=yes";
         SearchByIdUrl = BaseUrl + "search.php?searchid={searchid}&orderby=lastpost&ascdesc=desc&searchsubmit=yes";
 
-        LoginSubmit = BaseUrl + "logging.php?action=login&loginsubmit=yes&inajax=1";
-        LoginGetFormHash = BaseUrl + "logging.php?action=login&referer=http%3A//www.hi-pda.com/forum/logging.php";
+        LoginSubmit = BaseUrl + "member.php?mod=logging&action=login&loginsubmit=yes&inajax=1";
+        LoginGetFormHash = BaseUrl + "member.php?mod=logging&action=login&referer=http%3A//www.emsky.net/bbs/logging.php";
 
         SmallImages.clear();
     }
