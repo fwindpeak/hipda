@@ -4,19 +4,14 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
-
-import com.crashlytics.android.Crashlytics;
-
-import net.jejer.hipda.BuildConfig;
 import net.jejer.hipda.R;
 import net.jejer.hipda.async.UpdateHelper;
 import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.utils.HiUtils;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 import java.io.File;
 
-import io.fabric.sdk.android.Fabric;
-import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by GreenSkinMonster on 2015-03-28.
@@ -39,9 +34,6 @@ public class HiApplication extends Application implements Application.ActivityLi
         super.onCreate();
         context = getApplicationContext();
         registerActivityLifecycleCallbacks(this);
-
-        if (!BuildConfig.DEBUG)
-            Fabric.with(this, new Crashlytics());
 
         updated = UpdateHelper.updateApp();
 

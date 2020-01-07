@@ -1,3 +1,10 @@
+# TODO
+
++ 修复`不显示置顶帖`功能
++ BS版支持屏蔽商家
++ BS版块支持关键词屏蔽
++ 尝试使用全文搜索来提高目前几乎瘫痪的搜索功能
+
 # HiPDA·NG
 
 **HiPDA论坛非官方客户端**
@@ -14,9 +21,10 @@ HiPDA·NG是使用MD风格的版本，即master分支，为目前主要维护版
 多谢原作者 jejer 的分享   
 原项目发布于 http://www.hi-pda.com/forum/viewthread.php?tid=1408844   
 
+
 # 开发者注意
 
-请把 hipad/fabric.properties.example 复制为 fabric.properties ，否则编译可能失败
+请把 hipda/fabric.properties.example 复制为 fabric.properties ，否则编译可能失败
 
 # 权限要求说明
 - android.permission.INTERNET 必需，用于访问HiPDA论坛服务器及图片、更新服务器等。
