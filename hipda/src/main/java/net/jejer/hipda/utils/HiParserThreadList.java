@@ -47,8 +47,7 @@ public class HiParserThreadList {
             }
         }
 
-        String block_keywords = HiSettingsHelper.getInstance().getPerfBlockKeywords();
-        String[] block_keywords_list = block_keywords.split(",");
+        boolean isBuyAndSell = doc.title().contains("Buy & Sell");
 
         Elements tbodyES = doc.select("table.datatable>tbody");
         boolean isStick = true;
@@ -82,7 +81,7 @@ public class HiParserThreadList {
             Element titleLink = titleES.first();
             String title = titleLink.text();
             thread.setTitle(EmojiParser.parseToUnicode(title));
-            if (Utils.isInKeywords(title, block_keywords_list)) {
+            if (isBuyAndSell && Utils.isInBlockKeywords(title)) {
                 continue;
             }
 
@@ -116,7 +115,7 @@ public class HiParserThreadList {
                 //author in blacklist
                 continue;
             }
-            if(!HiSettingsHelper.getInstance().isShowBusinessThreads() && Utils.isBusinessUser(author)){
+            if (isBuyAndSell && !HiSettingsHelper.getInstance().isShowBusinessThreads() && Utils.isBusinessUser(author)) {
                 continue;
             }
 

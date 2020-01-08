@@ -561,6 +561,7 @@ public class ThreadListFragment extends BaseFragment
             public void onClick(DialogInterface dialogInterface, int i) {
                 String keywords = Utils.nullToText(etKeywords.getText()).replace("\n", ",").replace("，", ",").trim();
                 HiSettingsHelper.getInstance().setPerfBlockKeywords(keywords);
+                mLoadingView.setState(ContentLoadingView.LOAD_NOW);
                 refresh();
             }
         });

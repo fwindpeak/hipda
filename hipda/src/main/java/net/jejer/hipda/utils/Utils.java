@@ -24,6 +24,7 @@ import android.view.WindowManager;
 
 import com.bumptech.glide.Glide;
 
+import net.jejer.hipda.bean.HiSettingsHelper;
 import net.jejer.hipda.okhttp.OkHttpHelper;
 import net.jejer.hipda.ui.HiApplication;
 
@@ -69,7 +70,8 @@ public class Utils {
     public final static Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
     public final static String REPLACE_URL_REGEX = "(" + URL_REGEX + ")";
 
-    private static List<String> business_user_list = new ArrayList<String>();
+    private static List<String> business_user_list = new ArrayList<>();
+    private static List<String> block_keywords;
 
     public static String nullToText(CharSequence text) {
         if (TextUtils.isEmpty(text)) {
@@ -635,23 +637,22 @@ public class Utils {
         }
     }
 
-    public static boolean isInKeywords(String title,String[] keywords){
-        if(keywords.length<1 || keywords[0].isEmpty()){
+    public static boolean isInBlockKeywords(String title) {
+        String setting_keywords = HiSettingsHelper.getInstance().getBlockKeywords();
+        if (setting_keywords.isEmpty()) {
             return false;
-        }
-        for(String keyword:keywords){
-            if(keyword.isEmpty()){
-                continue;
-            }
-            if(title.contains(keyword)){
-                return true;
+        } else {
+            for (String keyword : setting_keywords.split(",")) {
+                if (title.contains((keyword))) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
-    public static boolean isBusinessUser(String username){
-        if(business_user_list.isEmpty()){
+    public static boolean isBusinessUser(String username) {
+        if (business_user_list.isEmpty()) {
             try {
                 String[] user_list = Utils.readFromAssets(HiApplication.getAppContext(), "business_user.txt").split("\n");
                 business_user_list = Arrays.asList(user_list);

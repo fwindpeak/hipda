@@ -243,6 +243,7 @@ public class HiSettingsHelper {
         getSecAnswerFromPref();
         isShowStickThreadsFromPref();
         isShowBusinessThreadsFromPref();
+        getPerfBlockKeywords();
         getAvatarLoadTypeFromPref();
         isSortByPostTimeByForumFromPref();
         isAddTailFromPref();
@@ -381,6 +382,10 @@ public class HiSettingsHelper {
         mShowBusinessThreads = showBusinessThreads;
         SharedPreferences.Editor editor = mSharedPref.edit();
         editor.putBoolean(PERF_SHOWBUSINESSTHREADS, showBusinessThreads).apply();
+    }
+
+    public String getBlockKeywords(){
+        return mBlockKeywords;
     }
 
 
