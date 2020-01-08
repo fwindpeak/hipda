@@ -47,6 +47,9 @@ public class HiParserThreadList {
             }
         }
 
+        String block_keywords = HiSettingsHelper.getInstance().getPerfBlockKeywords();
+        String[] block_keywords_list = block_keywords.split(",");
+
         Elements tbodyES = doc.select("tbody[id]");
         for (int i = 0; i < tbodyES.size(); ++i) {
 
@@ -69,7 +72,7 @@ public class HiParserThreadList {
             if(thTypeClass.size() == 0){
                 continue;
             }
-            boolean isStick = thTypeClass.first().attr("class").equals("subject common");
+            boolean isStick = !thTypeClass.first().attr("class").equals("subject new");
             thread.setIsStick(isStick);
 
             if (isStick && !HiSettingsHelper.getInstance().isShowStickThreads()) {
@@ -83,6 +86,9 @@ public class HiParserThreadList {
             Element titleLink = titleES.first();
             String title = titleLink.text();
             thread.setTitle(EmojiParser.parseToUnicode(title));
+            if(Utils.isInKeywords(title,block_keywords_list)){
+                continue;
+            }
 
             String linkStyle = titleLink.attr("style");
             if (!TextUtils.isEmpty(linkStyle)) {

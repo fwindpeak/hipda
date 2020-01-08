@@ -278,6 +278,9 @@ public class ThreadListFragment extends BaseFragment
                 mLoadingView.setState(ContentLoadingView.LOAD_NOW);
                 refresh();
                 return true;
+            case R.id.action_block_keywords:
+                showBlockKeywordsDialog();
+                return true;
             case R.id.action_open_by_url:
                 showOpenUrlDialog();
                 return true;
@@ -531,6 +534,32 @@ public class ThreadListFragment extends BaseFragment
 
         String url = Utils.nullToText(etUrl.getText()).replace("\n", "").trim();
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(FragmentUtils.parseUrl(url) != null);
+    }
+
+    public void showBlockKeywordsDialog() {
+        final LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View viewlayout = inflater.inflate(R.layout.dialog_block_keywords, null);
+
+        final EditText etKeywords = viewlayout.findViewById(R.id.et_keywords);
+        String keywords = HiSettingsHelper.getInstance().getPerfBlockKeywords();
+        etKeywords.setText(keywords);
+        etKeywords.requestFocus();
+
+        final AlertDialog.Builder popDialog = new AlertDialog.Builder(getActivity());
+        popDialog.setTitle(mCtx.getResources().getString(R.string.action_block_keywords));
+        popDialog.setView(viewlayout);
+        popDialog.setPositiveButton(getResources().getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String keywords = Utils.nullToText(etKeywords.getText()).replace("\n", ",").replace("，", ",").trim();
+                HiSettingsHelper.getInstance().setPerfBlockKeywords(keywords);
+            }
+        });
+        popDialog.setNegativeButton(getResources().getString(android.R.string.cancel),null);
+
+        final AlertDialog dialog = popDialog.create();
+        dialog.show();
+
     }
 
     public void showNotification() {

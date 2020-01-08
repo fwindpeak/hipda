@@ -38,6 +38,7 @@ public class HiSettingsHelper {
     public static final String PERF_SECQUESTION = "PERF_SECQUESTION";
     public static final String PERF_SECANSWER = "PERF_SECANSWER";
     public static final String PERF_SHOWSTICKTHREADS = "PERF_SHOWSTICKTHREADS";
+    public static final String PERF_BLOCK_KEYWORDS = "PERF_BLOCK_KEYWORDS";
     public static final String PERF_WIFI_IMAGE_POLICY = "PERF_WIFI_IMAGE_POLICY";
     public static final String PERF_MOBILE_IMAGE_POLICY = "PERF_MOBILE_IMAGE_POLICY";
     public static final String PERF_AVATAR_LOAD_TYPE = "PERF_AVATAR_LOAD_TYPE";
@@ -117,6 +118,7 @@ public class HiSettingsHelper {
     private String mUid = "";
 
     private boolean mShowStickThreads = false;
+    private String mBlockKeywords = "";
     private String mAvatarLoadType = "0";
     private Set<String> mSortByPostTimeByForum;
 
@@ -356,6 +358,18 @@ public class HiSettingsHelper {
         mShowStickThreads = mSharedPref.getBoolean(PERF_SHOWSTICKTHREADS, false);
         return mShowStickThreads;
     }
+
+    public String getPerfBlockKeywords(){
+        mBlockKeywords = mSharedPref.getString(PERF_BLOCK_KEYWORDS,"");
+        return mBlockKeywords;
+    }
+
+    public void setPerfBlockKeywords(String keywords){
+        mBlockKeywords = keywords;
+        SharedPreferences.Editor editor = mSharedPref.edit();
+        editor.putString(PERF_BLOCK_KEYWORDS,keywords).apply();
+    }
+
 
     public void setShowStickThreads(boolean showStickThreads) {
         mShowStickThreads = showStickThreads;

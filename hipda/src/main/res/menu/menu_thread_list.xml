@@ -35,6 +35,10 @@
         android:title="@string/action_text_size"/>
 
     <item
+        android:id="@+id/action_block_keywords"
+        android:title="@string/action_block_keywords" />
+
+    <item
         android:id="@+id/action_open_by_url"
         android:title="@string/action_open_by_url" />
 

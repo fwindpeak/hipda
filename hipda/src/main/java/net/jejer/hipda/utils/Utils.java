@@ -635,4 +635,19 @@ public class Utils {
         }
     }
 
+    public static boolean isInKeywords(String title,String[] keywords){
+        if(keywords.length<1 || keywords[0].isEmpty()){
+            return false;
+        }
+        for(String keyword:keywords){
+            if(keyword.isEmpty()){
+                continue;
+            }
+            if(title.contains(keyword)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

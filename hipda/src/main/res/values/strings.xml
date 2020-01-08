@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">HiPDA·NG</string>
+    <string name="app_name">HiPDA·FW</string>
     <string name="author">作者 ：绿皮怪兽</string>
     <string name="action_refresh">刷新</string>
     <string name="action_image_gallery">图片浏览</string>
@@ -22,6 +22,7 @@
     <string name="action_copy_url">复制帖子地址</string>
     <string name="action_thread_list_settings">版面设置</string>
     <string name="action_open_by_url">打开站内地址</string>
+    <string name="action_block_keywords">屏蔽关键词</string>
     <string name="action_upload_img">上传图片</string>
     <string name="action_delete_post">删除本帖</string>
     <string name="action_restore_content">恢复输入内容</string>
@@ -84,6 +85,7 @@
     <string name="prefix_search_fulltext">全文搜索：</string>
     <string name="prefix_search_history">搜索记录：</string>
     <string name="user_online">目前在线</string>
+    <string name="block_keywords">需要屏蔽的标题关键词（逗号分隔）</string>
     <string name="site_url">站内地址</string>
     <string name="new_thread">发表主题</string>
 
