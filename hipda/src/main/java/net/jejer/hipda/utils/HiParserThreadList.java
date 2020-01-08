@@ -50,17 +50,18 @@ public class HiParserThreadList {
         String block_keywords = HiSettingsHelper.getInstance().getPerfBlockKeywords();
         String[] block_keywords_list = block_keywords.split(",");
 
-        Elements tbodyES = doc.select("tbody[id]");
-        for (int i = 0; i < tbodyES.size(); ++i) {
+        Elements tbodyES = doc.select("table.datatable>tbody");
+        boolean isStick = true;
+        for (Element tbodyE : tbodyES) {
 
             threads.setParsed(true);
 
-            Element tbodyE = tbodyES.get(i);
             ThreadBean thread = new ThreadBean();
 
-			/* title and tid */
+            /* title and tid */
             String[] idSpil = tbodyE.attr("id").split("_");
             if (idSpil.length != 2) {
+                isStick = false;
                 continue;
             }
             String idType = idSpil[0];
@@ -68,11 +69,6 @@ public class HiParserThreadList {
 
             thread.setTid(idNum);
             // is stick thread or normal thread
-            Elements thTypeClass = tbodyE.select("th.subject");
-            if(thTypeClass.size() == 0){
-                continue;
-            }
-            boolean isStick = !thTypeClass.first().attr("class").equals("subject new");
             thread.setIsStick(isStick);
 
             if (isStick && !HiSettingsHelper.getInstance().isShowStickThreads()) {
@@ -86,7 +82,7 @@ public class HiParserThreadList {
             Element titleLink = titleES.first();
             String title = titleLink.text();
             thread.setTitle(EmojiParser.parseToUnicode(title));
-            if(Utils.isInKeywords(title,block_keywords_list)){
+            if (Utils.isInKeywords(title, block_keywords_list)) {
                 continue;
             }
 
@@ -106,7 +102,7 @@ public class HiParserThreadList {
                 thread.setNew(imgSrc.contains("new"));
             }
 
-			/*  author, authorId and create_time  */
+            /*  author, authorId and create_time  */
             Elements authorES = tbodyE.select("td.author");
             if (authorES.size() == 0) {
                 continue;
@@ -143,7 +139,7 @@ public class HiParserThreadList {
                 thread.setTimeUpdate(threadUpdateTime);
             }
 
-			/*  comments and views  */
+            /*  comments and views  */
             Elements nums = tbodyE.select("td.nums");
             if (nums.size() == 0) {
                 continue;
@@ -172,8 +168,7 @@ public class HiParserThreadList {
 
             // attachment and picture
             Elements attachs = tbodyE.select("img.attach");
-            for (int j = 0; j < attachs.size(); j++) {
-                Element attach = attachs.get(j);
+            for (Element attach : attachs) {
                 String attach_img_url = attach.attr("src");
                 if (attach_img_url.isEmpty()) {
                     continue;

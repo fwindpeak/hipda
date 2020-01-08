@@ -553,6 +553,7 @@ public class ThreadListFragment extends BaseFragment
             public void onClick(DialogInterface dialogInterface, int i) {
                 String keywords = Utils.nullToText(etKeywords.getText()).replace("\n", ",").replace("，", ",").trim();
                 HiSettingsHelper.getInstance().setPerfBlockKeywords(keywords);
+                refresh();
             }
         });
         popDialog.setNegativeButton(getResources().getString(android.R.string.cancel),null);
