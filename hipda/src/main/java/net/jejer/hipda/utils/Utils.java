@@ -45,9 +45,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import androidx.annotation.AttrRes;
@@ -70,6 +68,8 @@ public class Utils {
     public final static String URL_REGEX = "[(http(s)?):\\/\\/(www\\.)?a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)";
     public final static Pattern URL_PATTERN = Pattern.compile(URL_REGEX);
     public final static String REPLACE_URL_REGEX = "(" + URL_REGEX + ")";
+
+    private static List<String> business_user_list = new ArrayList<String>();
 
     public static String nullToText(CharSequence text) {
         if (TextUtils.isEmpty(text)) {
@@ -648,6 +648,18 @@ public class Utils {
             }
         }
         return false;
+    }
+
+    public static boolean isBusinessUser(String username){
+        if(business_user_list.isEmpty()){
+            try {
+                String[] user_list = Utils.readFromAssets(HiApplication.getAppContext(), "business_user.txt").split("\n");
+                business_user_list = Arrays.asList(user_list);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return business_user_list.contains(username);
     }
 
 }

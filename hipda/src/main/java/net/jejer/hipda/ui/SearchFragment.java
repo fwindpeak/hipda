@@ -282,13 +282,13 @@ public class SearchFragment extends BaseFragment implements SwipeRefreshLayout.O
                     mSearchMenuItem.collapseActionView();
                     mEtAuthor.setText("");
                     mSpForum.setSelection(0);
-                    mCbFulltext.setChecked(false);
+                    mCbFulltext.setChecked(true);
                     hideSearchFilter();
                 } else {
                     mSearchTextView.setText("");
                     mEtAuthor.setText("");
                     mSpForum.setSelection(0);
-                    mCbFulltext.setChecked(false);
+                    mCbFulltext.setChecked(true);
                 }
             }
         });

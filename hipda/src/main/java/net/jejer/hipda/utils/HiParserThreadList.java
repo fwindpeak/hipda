@@ -116,6 +116,9 @@ public class HiParserThreadList {
                 //author in blacklist
                 continue;
             }
+            if(!HiSettingsHelper.getInstance().isShowBusinessThreads() && Utils.isBusinessUser(author)){
+                continue;
+            }
 
             String userLink = authorciteAES.first().attr("href");
             if (userLink.length() < "space.php?uid=".length()) {

@@ -38,6 +38,7 @@ public class HiSettingsHelper {
     public static final String PERF_SECQUESTION = "PERF_SECQUESTION";
     public static final String PERF_SECANSWER = "PERF_SECANSWER";
     public static final String PERF_SHOWSTICKTHREADS = "PERF_SHOWSTICKTHREADS";
+    public static final String PERF_SHOWBUSINESSTHREADS = "PERF_SHOWBUSINESSTHREADS";
     public static final String PERF_BLOCK_KEYWORDS = "PERF_BLOCK_KEYWORDS";
     public static final String PERF_WIFI_IMAGE_POLICY = "PERF_WIFI_IMAGE_POLICY";
     public static final String PERF_MOBILE_IMAGE_POLICY = "PERF_MOBILE_IMAGE_POLICY";
@@ -118,6 +119,7 @@ public class HiSettingsHelper {
     private String mUid = "";
 
     private boolean mShowStickThreads = false;
+    private boolean mShowBusinessThreads = true;
     private String mBlockKeywords = "";
     private String mAvatarLoadType = "0";
     private Set<String> mSortByPostTimeByForum;
@@ -240,6 +242,7 @@ public class HiSettingsHelper {
         getSecQuestionFromPref();
         getSecAnswerFromPref();
         isShowStickThreadsFromPref();
+        isShowBusinessThreadsFromPref();
         getAvatarLoadTypeFromPref();
         isSortByPostTimeByForumFromPref();
         isAddTailFromPref();
@@ -359,22 +362,37 @@ public class HiSettingsHelper {
         return mShowStickThreads;
     }
 
-    public String getPerfBlockKeywords(){
-        mBlockKeywords = mSharedPref.getString(PERF_BLOCK_KEYWORDS,"");
-        return mBlockKeywords;
-    }
-
-    public void setPerfBlockKeywords(String keywords){
-        mBlockKeywords = keywords;
-        SharedPreferences.Editor editor = mSharedPref.edit();
-        editor.putString(PERF_BLOCK_KEYWORDS,keywords).apply();
-    }
-
-
     public void setShowStickThreads(boolean showStickThreads) {
         mShowStickThreads = showStickThreads;
         SharedPreferences.Editor editor = mSharedPref.edit();
         editor.putBoolean(PERF_SHOWSTICKTHREADS, showStickThreads).apply();
+    }
+
+    public boolean isShowBusinessThreads() {
+        return mShowBusinessThreads;
+    }
+
+    private boolean isShowBusinessThreadsFromPref() {
+        mShowBusinessThreads = mSharedPref.getBoolean(PERF_SHOWBUSINESSTHREADS, true);
+        return mShowBusinessThreads;
+    }
+
+    public void setShowBusinessThreads(boolean showBusinessThreads) {
+        mShowBusinessThreads = showBusinessThreads;
+        SharedPreferences.Editor editor = mSharedPref.edit();
+        editor.putBoolean(PERF_SHOWBUSINESSTHREADS, showBusinessThreads).apply();
+    }
+
+
+    public String getPerfBlockKeywords() {
+        mBlockKeywords = mSharedPref.getString(PERF_BLOCK_KEYWORDS, "");
+        return mBlockKeywords;
+    }
+
+    public void setPerfBlockKeywords(String keywords) {
+        mBlockKeywords = keywords;
+        SharedPreferences.Editor editor = mSharedPref.edit();
+        editor.putString(PERF_BLOCK_KEYWORDS, keywords).apply();
     }
 
     private String getAvatarLoadTypeFromPref() {

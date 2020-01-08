@@ -236,6 +236,8 @@ public class ThreadListFragment extends BaseFragment
         }
         MenuItem showStickItem = menu.findItem(R.id.action_show_stick_threads);
         showStickItem.setChecked(HiSettingsHelper.getInstance().isShowStickThreads());
+        MenuItem showBusinessItem = menu.findItem(R.id.action_show_business_threads);
+        showBusinessItem.setChecked(HiSettingsHelper.getInstance().isShowBusinessThreads());
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -275,6 +277,12 @@ public class ThreadListFragment extends BaseFragment
             case R.id.action_show_stick_threads:
                 item.setChecked(!item.isChecked());
                 HiSettingsHelper.getInstance().setShowStickThreads(item.isChecked());
+                mLoadingView.setState(ContentLoadingView.LOAD_NOW);
+                refresh();
+                return true;
+            case R.id.action_show_business_threads:
+                item.setChecked(!item.isChecked());
+                HiSettingsHelper.getInstance().setShowBusinessThreads(item.isChecked());
                 mLoadingView.setState(ContentLoadingView.LOAD_NOW);
                 refresh();
                 return true;
@@ -556,7 +564,7 @@ public class ThreadListFragment extends BaseFragment
                 refresh();
             }
         });
-        popDialog.setNegativeButton(getResources().getString(android.R.string.cancel),null);
+        popDialog.setNegativeButton(getResources().getString(android.R.string.cancel), null);
 
         final AlertDialog dialog = popDialog.create();
         dialog.show();
