@@ -50,7 +50,9 @@ public class HiParserThreadList {
         boolean isBuyAndSell = doc.title().contains("Buy & Sell");
 
         Elements tbodyES = doc.select("table.datatable>tbody");
-        boolean isStick = true;
+        String pageText = doc.select("div.pages>strong").first().text().trim();
+        boolean isPage1 = pageText.equals("1");
+        boolean isStick = isPage1;
         for (Element tbodyE : tbodyES) {
 
             threads.setParsed(true);
@@ -60,14 +62,13 @@ public class HiParserThreadList {
             /* title and tid */
             String[] idSpil = tbodyE.attr("id").split("_");
             if (idSpil.length != 2) {
-                isStick = false;
+                isStick = false; //分隔置顶帖
                 continue;
             }
             String idType = idSpil[0];
             String idNum = idSpil[1];
 
             thread.setTid(idNum);
-            // is stick thread or normal thread
             thread.setIsStick(isStick);
 
             if (isStick && !HiSettingsHelper.getInstance().isShowStickThreads()) {
