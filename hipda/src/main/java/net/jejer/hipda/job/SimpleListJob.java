@@ -178,7 +178,7 @@ public class SimpleListJob extends BaseJob {
             case TYPE_SEARCH:
                 try {
                     url = HiUtils.SearchUrl
-                            .replace("{srchtype}", mSearchBean.isFulltext() ? "fulltext" : "title")
+                            .replace("{srchtype}", mSearchBean.isFulltext() ? "fulltext" : "hipda")
                             .replace("{srchtxt}", URLEncoder.encode(mSearchBean.getQuery(), "GBK"))
                             .replace("{srchuname}", URLEncoder.encode(mSearchBean.getAuthor(), "GBK"))
                             .replace("{fid}", mSearchBean.getForum());
